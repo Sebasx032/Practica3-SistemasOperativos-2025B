@@ -1,28 +1,27 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/wait.h>
 
+int pid;
+
 int main() {
-    int pid;
-    int i;
     pid = fork();
 
-    switch(pid) {
-        case -1: // Si pid es -1 quiere decir que ha habido un error
-            printf("No se ha podido crear el proceso hijo\n");
+    switch (pid) {
+        case -1:
+            printf("\nNo he podido crear el proceso hijo");
             break;
 
-        case 0: // Cuando pid es cero quiere decir que es el proceso hijo
-            for(i = 1; i <= 10; i++)
-                printf("%d Soy el hijo con PID: %d \n", i, getpid());
-            break;
-
-        default: // Cuando es distinto de cero es el padre
-            for(i = 1; i <= 10; i++)
-                printf("%d Soy el padre con PID: %d \n", i, getpid());
-            // La función wait detiene el proceso padre y se queda esperando hasta
-            // que termine el hijo
+        case 0:
+            printf("\nSoy el hijo, mi PID es %d y mi PPID es %d", getpid(), getppid());
             wait(0);
             break;
+
+        default:
+            printf("\nSoy el padre, mi PID es %d y el PID de mi hijo es %d", getpid(), pid);
     }
+
+    printf("\nFinal de ejecución de %d \n", getpid());
+    exit(0);
 }
