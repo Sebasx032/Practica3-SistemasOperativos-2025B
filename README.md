@@ -10,7 +10,7 @@ Este repositorio está organizado por ejercicios de la práctica 3, mostrando c�
 
 ### 3.1 Creación y gestión de procesos con `fork()`
 
-- **[Ejercicio 3.1.1 - Creación de procesos con fork()](./ejercicio3_1_1/README.md)**  
+- **[Ejercicio 3.1.1 - Creación de procesos con fork()](./codigo/README.md)**  
   Introduce la llamada al sistema `fork()`. Se crean procesos hijos que imprimen sus PIDs y el PID del padre. Permite observar la ejecución concurrente de padre e hijo.
 
 - **[Ejercicio 3.1.2 - Modificación de proceso hijo para registrar valores](./ejercicio3_1_2/README.md)**  
